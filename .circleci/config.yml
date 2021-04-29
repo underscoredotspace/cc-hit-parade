@@ -17,7 +17,7 @@ jobs:
             - run: npm install
             - save_cache:
                   paths:
-                      - ~/usr/local/lib/node_modules # location depends on npm version
+                      - ~/node_modules # location depends on npm version
                   key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - run: npm test
             - run: npm run lint
@@ -37,7 +37,7 @@ jobs:
             - run: npm install
             - save_cache:
                   paths:
-                      - ~/usr/local/lib/node_modules # location depends on npm version
+                      - ~/node_modules # location depends on npm version
                   key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
             - run: npm run build
             - aws-s3/sync:
